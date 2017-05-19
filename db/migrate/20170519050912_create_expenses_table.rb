@@ -1,8 +1,7 @@
-class CreateTransactionsTable < ActiveRecord::Migration[4.2]
+class CreateExpensesTable < ActiveRecord::Migration[4.2]
   def change
-    create_table :transactions do |t|
+    create_table :expenses do |t|
       t.datetime :date
-      t.string :category
       t.decimal :amount
       t.string :vendor
       t.integer :user_id
