@@ -1,1 +1,28 @@
 <h1>Record a New Expense</h1>
+
+<form action="/expenses" method="post">
+  <label for="date">Date: </label><input type="date" id="date"
+  name="expense[date]">
+  <br>
+  <label for="amount">Amount: </label><input type="number" id="amount"
+  step="any" name="expense[amount]">
+  <br>
+  <label for="vendor">Vendor: </label><input type="text" id="vendor"
+  name="expense[vendor]">
+  <br>
+
+  <label for="category">Category: </label>
+  <br>
+    <% @categories.each do |category| %>
+      <input type="radio" name="existing_category" value="<%= category.name %>"
+      ><%= category.name %></input>
+      <br>
+    <% end %>
+    <input type="radio" name="existing_category" value="none">none</input>
+    <br>
+    <label for="new_category">New Category: </label><input type="text"
+    id="new_category" name="new_category">
+
+  <br></br>
+  <input type="submit" value="Enter">
+</form>
