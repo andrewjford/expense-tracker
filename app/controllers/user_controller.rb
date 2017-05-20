@@ -16,7 +16,7 @@ class UserController < ApplicationController
 
   get '/users/:user/profile' do
     if logged_in?
-      @user = User.find(params[:user])
+      @user = User.find_by(id:params[:user])
       erb :"users/profile"
     else
       redirect '/'
@@ -26,28 +26,6 @@ class UserController < ApplicationController
   get '/users/:user/edit' do
     @user = current_user
     erb :"users/edit"
-  end
-
-  post '/users' do
-    user = User.new(params[:user])
-    if user.save
-      session[:user_id] = user.id
-      redirect "/#{user.id}/"
-    else
-      flash[:message] = "Failed to create new user."
-      redirect "/signup"
-    end
-  end
-
-  post '/users/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect "/#{user.id}/"
-    else
-      flash[:message] = "Login failed."
-      redirect "/login"
-    end
   end
 
   patch '/users/:user/edit' do
