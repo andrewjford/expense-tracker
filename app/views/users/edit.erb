@@ -1,3 +1,16 @@
-<form action="/" method="post">
-  
+<% if flash.has?(:message) %>
+  <p class="flash-text"><%= flash[:message] %></p>
+<% else %>
+<br></br>
+<% end %>
+
+<form action="/users/<%= @user.id %>/edit" method="post">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <label for="password">Current Password</label><input type="password"
+  id="password" name="old_password">
+  <br>
+  <label for="password">New Password</label><input type="password"
+  id="password" name="new_password">
+  <br></br>
+  <input type="submit" value="Submit">
 </form>

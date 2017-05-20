@@ -4,48 +4,28 @@ class UserController < ApplicationController
     erb :"users/index"
   end
 
-  get '/signup' do
-    if logged_in?
-      redirect '/'
-    else
-      erb :"users/new"
-    end
-  end
-
-  get '/login' do
-    if logged_in?
-      redirect '/'
-    else
-      erb :"users/login"
-    end
-  end
-
-  get '/users/logout' do
-    if logged_in?
-      session.clear
-      redirect '/'
-    else
-      redirect '/'
-    end
-  end
-
   #this path just redirects to actual path with user.id added
   #not sure if this is a good pattern
   get '/users/profile' do
     if logged_in?
-      redirect "/#{current_user.id}/profile"
+      redirect "/users/#{current_user.id}/profile"
     else
       redirect '/'
     end
   end
 
-  get '/:user/profile' do
+  get '/users/:user/profile' do
     if logged_in?
       @user = User.find(params[:user])
       erb :"users/profile"
     else
       redirect '/'
     end
+  end
+
+  get '/users/:user/edit' do
+    @user = current_user
+    erb :"users/edit"
   end
 
   post '/users' do
@@ -67,6 +47,20 @@ class UserController < ApplicationController
     else
       flash[:message] = "Login failed."
       redirect "/login"
+    end
+  end
+
+  patch '/users/:user/edit' do
+    user = current_user
+    if user.authenticate(params[:old_password]) && params[:new_password] != ""
+      user.update(password: params[:new_password])
+      redirect "/users/#{user.id}/profile"
+    elsif params[:new_password] == ""
+      flash[:message] = "Please enter a valid password."
+      redirect "/users/#{user.id}/edit"
+    else
+      flash[:message] = "Incorrect Old Password."
+      redirect "/users/#{user.id}/edit"
     end
   end
 
