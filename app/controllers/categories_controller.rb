@@ -6,8 +6,12 @@ class CategoriesController < ApplicationController
   end
 
   post '/categories' do
-    @categories = current_user.categories
-    erb :"/categories/new"
+    if new_category = Category.new(name: params[:name], user: current_user)
+      new_category.save
+    else
+      flash[:message] = "Category not added."
+    end
+    redirect '/categories'
   end
 
 end

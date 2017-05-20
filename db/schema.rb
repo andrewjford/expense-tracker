@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519050912) do
+ActiveRecord::Schema.define(version: 20170520230908) do
 
   create_table "categories", force: :cascade do |t|
     t.string  "name"
     t.integer "expense_id"
+    t.integer "user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
