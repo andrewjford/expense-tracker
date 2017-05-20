@@ -11,8 +11,6 @@ views
   transaction show
 
 controllers
-  guest /login
-  guest /signup
 
   /user_id
   /user_id/edit

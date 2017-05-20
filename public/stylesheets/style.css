@@ -2,6 +2,25 @@
   color: #ff0000;
 }
 
+.button-link {
+  font: bold 18px Arial;
+  text-decoration: none;
+  background-color: #64d166;
+  color: #1b351c;
+  padding: 4px 12px 4px 12px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
 a:link {
   text-decoration: none;
+}
+
+body {
+  background-image: url("/images/calc3.png");
+  background-color: #F2F2F2;
+  background-repeat: no-repeat;
 }
