@@ -14,3 +14,5 @@ controllers
 
   /user_id
   /user_id/edit
+
+signup - no user repeats

@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+
   get '/' do
     if logged_in?
       redirect "/#{current_user.id}/"
@@ -34,5 +35,5 @@ class SessionController < ApplicationController
       redirect "/login"
     end
   end
-
+  
 end
