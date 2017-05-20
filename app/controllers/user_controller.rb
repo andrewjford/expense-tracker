@@ -29,6 +29,25 @@ class UserController < ApplicationController
     end
   end
 
+  #this path just redirects to actual path with user.id added
+  #not sure if this is a good pattern
+  get '/users/profile' do
+    if logged_in?
+      redirect "/#{current_user.id}/profile"
+    else
+      redirect '/'
+    end
+  end
+
+  get '/:user/profile' do
+    if logged_in?
+      @user = User.find(params[:user])
+      erb :"users/profile"
+    else
+      redirect '/'
+    end
+  end
+
   post '/users' do
     user = User.new(params[:user])
     if user.save

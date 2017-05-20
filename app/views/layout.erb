@@ -8,6 +8,7 @@
   <body>
     <a href="/">Home</a>
     <% if logged_in? %>
+      <a href="/users/profile">Profile</a>
       <a href="/users/logout">Logout</a>
     <% else %>
       <a href="/login">Login</a>
