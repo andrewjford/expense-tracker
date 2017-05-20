@@ -15,7 +15,6 @@ class UserController < ApplicationController
       session[:user_id] = user.id
       redirect "/#{user.id}/"
     else
-      #add flash saying signup failed
       flash[:message] = "Failed to create new user."
       redirect "/signup"
     end
