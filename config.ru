@@ -5,7 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use TransactionController
+use ExpensesController
 use RegistrationController
 use SessionController
 use UserController

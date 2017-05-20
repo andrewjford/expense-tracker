@@ -16,3 +16,4 @@ controllers
   /user_id/edit
 
 signup - no user repeats
+signup - test email format

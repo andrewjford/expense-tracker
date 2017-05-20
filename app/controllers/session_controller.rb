@@ -4,7 +4,7 @@ class SessionController < ApplicationController
     if logged_in?
       redirect "/#{current_user.id}/"
     else
-      erb :welcome
+      erb :"/sessions/welcome"
     end
   end
 
@@ -35,5 +35,5 @@ class SessionController < ApplicationController
       redirect "/login"
     end
   end
-  
+
 end
