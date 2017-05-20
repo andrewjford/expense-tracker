@@ -1,18 +1,15 @@
-<h2>Sign Up</h2>
+<h2>Login</h2>
 
 <% if flash.has?(:message) %>
   <p class="flash-text"><%= flash[:message] %></p>
 <% end %>
 
-<form action="/users" method="post">
-  <label for="email">Email: </label><input type="text" id="email"
-    name="user[email]">
-  <br>
+<form action="/users/login" method="post">
   <label for="username">Username: </label><input type="text" id="username"
-   name="user[username]">
+   name="username">
   <br>
   <label for="password">Password: </label><input type="password" id="password"
-    name="user[password]">
+    name="password">
   <br>
-  <input type="submit" value="Submit">
+  <input type="submit" value="Login">
 </form>
