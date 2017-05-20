@@ -7,10 +7,11 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions unless test?
     set :session_secret, "ratsofatso"
+    use Rack::Flash
   end
 
   get '/' do
-    "Welcome to the Machine"
+    erb :welcome
   end
 
 end
