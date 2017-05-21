@@ -5,10 +5,9 @@ views
   user index
   user show
   user reports
-  transaction new
-  transaction index
-  transaction edit
-  transaction show
+  expense index
+  expense edit
+  expense show
 
 controllers
 
@@ -21,3 +20,5 @@ signup - test email format
 new expense - dollars and cents input
 prevent repeated form submittals
 fix flash messages
+do users need to have many categories through expenses also?
+make table view for expense index

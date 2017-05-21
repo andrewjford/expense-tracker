@@ -5,6 +5,11 @@ class ExpensesController < ApplicationController
     erb :"expenses/new"
   end
 
+  get '/expenses' do
+    @expenses = current_user.expenses
+    erb :"expenses/index"
+  end
+
   post '/expenses' do
 
     #get category

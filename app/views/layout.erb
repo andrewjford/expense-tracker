@@ -6,13 +6,23 @@
     <title></title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <% if logged_in? %>
-      <a href="/users/profile">Profile</a>
-      <a href="/logout">Logout</a>
-    <% else %>
-      <a href="/login">Login</a>
-    <% end %>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <% if logged_in? %>
+          <li><a href="/users/profile">Profile</a></li>
+          <li><a href="/expenses/new">Add Expense</a></li>
+          <li><a href="/categories">Categories</a></li>
+          <li><a href="/expenses">Detail</a></li>
+
+          <li><a href="/logout">Logout</a></li>
+        <% else %>
+          <li><a href="/login">Login</a></li>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
+
   </body>
 </html>
