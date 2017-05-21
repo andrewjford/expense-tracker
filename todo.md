@@ -6,6 +6,8 @@ views
   user reports
   expense edit
   expense show
+  categories edit
+  categories show
 
 controllers
 

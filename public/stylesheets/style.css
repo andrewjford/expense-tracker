@@ -53,7 +53,7 @@ label {
 
 main {
   margin: 0px 8px;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 nav {
@@ -86,4 +86,9 @@ nav li a {
 nav li a:hover {
   color: #64d166;
   background-color: #222;
+}
+
+table, th, td {
+  border: 1px solid green;
+  border-collapse: collapse;
 }

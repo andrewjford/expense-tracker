@@ -1,6 +1,17 @@
 <h1>Recent Expenses</h1>
 
-<% @expenses.each do |expense| %>
-  <p><%= expense.date.strftime('%D') %> <%= expense.category.name %>
-    - <%= expense.vendor %> $<%= expense.amount %></p>
-<% end %>
+<table>
+  <tr>
+    <th>Date</th><th>Category</th><th>Vendor</th><th>Amount</th>
+  </tr>
+  
+  <% @expenses.each do |expense| %>
+  <tr>
+    <td><%= expense.date.strftime('%D') %></td>
+    <td><%= expense.category.name %></td>
+    <td><%= expense.vendor %></td>
+    <td>$<%= expense.amount %></td>
+  </tr>
+  <% end %>
+
+</table>
