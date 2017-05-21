@@ -3,9 +3,7 @@ Models
 
 views
   user index
-  user show
   user reports
-  expense index
   expense edit
   expense show
 

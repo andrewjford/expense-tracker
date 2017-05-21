@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
     if new_category != ""
       category = Category.find_or_create_by(name: new_category, user: current_user)
     else
-      category = current_user.categories.find{|cat| cat.id == params[:existing_category]}
+      category = current_user.categories.find(params[:existing_category])
     end
 
     expense = Expense.new(date:params[:date],amount:params[:amount],
@@ -25,6 +25,7 @@ class ExpensesController < ApplicationController
     if expense.save
       redirect "/#{current_user.id}/"
     else
+      binding.pry
       redirect "/expenses/new"
     end
   end

@@ -1,8 +1,5 @@
 <h1>Recent Expenses</h1>
 
-<a href="/expenses/new" class="button-link">Add Expense</a>
-<a href="/categories" class="button-link">Categories</a>
-
 <% @expenses.each do |expense| %>
   <p><%= expense.date.strftime('%D') %> <%= expense.category.name %>
     - <%= expense.vendor %> $<%= expense.amount %></p>
