@@ -2,13 +2,15 @@
 
 <table>
   <tr>
-    <th>Date</th><th>Category</th><th>Vendor</th><th>Amount</th>
+    <th>Date</th><th>Category</th><th>Description</th><th>Amount</th>
   </tr>
 
   <tr>
     <td><%= @expense.date.strftime('%D') %></td>
-    <td><%= @expense.category.name %></td>
-    <td><%= @expense.vendor %></td>
+    <td><a href="/categories/<%= @expense.category.id %>"><%=
+      @expense.category.name %></a></td>
+    <td><a href="/expenses/vendors/<%= @expense.vendor %>"><%=
+      @expense.vendor %></a></td>
     <td>$<div class="float-right"><%= @expense.display_amount %></div></td>
   </tr>
 

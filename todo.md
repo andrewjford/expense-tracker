@@ -5,6 +5,7 @@ views
   user index
   user reports
 
+vendor report
 starter categories
 turn category slug into slugifiable interface
 fix flash messages

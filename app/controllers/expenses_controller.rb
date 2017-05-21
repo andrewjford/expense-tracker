@@ -24,6 +24,14 @@ class ExpensesController < ApplicationController
     end
   end
 
+  get '/expenses/vendors/:vendor' do
+    @vendor = params[:vendor]
+    @filtered_expenses = current_user.expenses.find_all do |exp|
+      exp.vendor == @vendor
+    end
+    erb :"/expenses/vendor"
+  end
+
   post '/expenses' do
     #get category
     new_category = params[:new_category]
