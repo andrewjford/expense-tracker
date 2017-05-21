@@ -88,6 +88,10 @@ nav li a:hover {
   background-color: #222;
 }
 
+th, td {
+  padding: 2px 7px;
+}
+
 table, th, td {
   border: 1px solid green;
   border-collapse: collapse;

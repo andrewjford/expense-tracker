@@ -6,18 +6,16 @@ views
   user reports
   expense edit
   expense show
+  expense delete
   categories edit
   categories show
+  categories delete
 
 controllers
 
   /user_id
   /user_id/edit
 
-signup - no user repeats
-signup - lowercase usernames
-signup - test email format
-new expense - dollars and cents input
 prevent repeated form submittals
 fix flash messages
 do users need to have many categories through expenses also?

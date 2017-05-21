@@ -23,9 +23,8 @@ class ExpensesController < ApplicationController
     expense = Expense.new(date:params[:date],amount:params[:amount],
     vendor:params[:vendor],category: category,user: current_user)
     if expense.save
-      redirect "/#{current_user.id}/"
+      redirect "/expenses"
     else
-      binding.pry
       redirect "/expenses/new"
     end
   end

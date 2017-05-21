@@ -10,7 +10,7 @@ class RegistrationController < ApplicationController
 
   post '/users' do
     user = User.new(params[:user])
-    if user.save
+    if User.name_available?(params[:user][:username]) && user.save
       session[:user_id] = user.id
       redirect "/#{user.id}/"
     else
