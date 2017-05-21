@@ -12,6 +12,8 @@ class ExpensesController < ApplicationController
 
   get '/expenses' do
     @expenses = current_user.expenses
+    #sort expenses by date (first being most recent), then only take first 20
+    @expenses = @expenses.sort_by {|expense| expense.date}.reverse.first(20)
     erb :"expenses/index"
   end
 
@@ -26,9 +28,7 @@ class ExpensesController < ApplicationController
 
   get '/expenses/vendors/:vendor' do
     @vendor = params[:vendor]
-    @filtered_expenses = current_user.expenses.find_all do |exp|
-      exp.vendor == @vendor
-    end
+    @filtered_expenses = current_user.expenses_by_vendor(@vendor)
     erb :"/expenses/vendor"
   end
 

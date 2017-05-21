@@ -7,17 +7,13 @@ class CategoriesController < ApplicationController
 
   get '/categories/:id' do
     @category = current_user.categories.find_by(id: params[:id])
-    @filtered_expenses = current_user.expenses.find_all do |expense|
-      expense.category == @category
-    end
+    @filtered_expenses = current_user.expenses_by_category(@category)
     erb :"/categories/show"
   end
 
   get '/categories/:id/edit' do
     @category = current_user.categories.find_by(id: params[:id])
-    @filtered_expenses = current_user.expenses.find_all do |expense|
-      expense.category == @category
-    end
+    @filtered_expenses = current_user.expenses_by_category(@category)
     erb :"/categories/edit"
   end
 
