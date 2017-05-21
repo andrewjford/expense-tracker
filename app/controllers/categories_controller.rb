@@ -5,6 +5,10 @@ class CategoriesController < ApplicationController
     erb :"/categories/index"
   end
 
+  get '/categories/:slug' do
+    
+  end
+
   post '/categories' do
     if new_category = Category.new(name: params[:name], user: current_user)
       new_category.save
