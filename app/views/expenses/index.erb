@@ -8,7 +8,8 @@
   <% @expenses.each do |expense| %>
   <tr>
     <td><%= expense.date.strftime('%D') %></td>
-    <td><%= expense.category.name %></td>
+    <td><a href="/categories/<%= expense.category.id %>"><%= 
+      expense.category.name %></a></td>
     <td><%= expense.vendor %></td>
     <td>$<a class="float-right" href="/expenses/<%= expense.id %>">
     <%= expense.display_amount %></a></td>

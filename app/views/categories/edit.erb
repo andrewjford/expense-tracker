@@ -17,10 +17,10 @@
 
 </table>
 <br>
-<form class="inline" action="/categories/<%= @category.id%>/edit" method="get">
-  <input type="submit" value="Edit">
-</form>
-<form class="inline" action="/categories/<%= @category.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
+<form action="/categories/<%= @category.id %>" method="post">
+  <label for="name">Name: </label><input type="text" name="name"
+  id="name" value="<%= @category.name %>">
+  <input type="hidden" name="_method" value="patch">
+  <br>
+  <input type="submit" value="Update">
 </form>

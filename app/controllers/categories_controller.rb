@@ -5,8 +5,20 @@ class CategoriesController < ApplicationController
     erb :"/categories/index"
   end
 
-  get '/categories/:slug' do
-    
+  get '/categories/:id' do
+    @category = current_user.categories.find_by(id: params[:id])
+    @filtered_expenses = current_user.expenses.find_all do |expense|
+      expense.category == @category
+    end
+    erb :"/categories/show"
+  end
+
+  get '/categories/:id/edit' do
+    @category = current_user.categories.find_by(id: params[:id])
+    @filtered_expenses = current_user.expenses.find_all do |expense|
+      expense.category == @category
+    end
+    erb :"/categories/edit"
   end
 
   post '/categories' do
@@ -16,6 +28,24 @@ class CategoriesController < ApplicationController
       flash[:message] = "Category not added."
     end
     redirect '/categories'
+  end
+
+  patch '/categories/:id' do
+    category = current_user.categories.find_by(id: params[:id])
+    category.update(name: params[:name]) if params[:name] != ""
+
+    redirect "/categories/#{category.id}"
+  end
+
+  delete '/categories/:id' do
+    category = current_user.categories.find_by(id: params[:id])
+    if current_user.expenses.none?{|exp| exp.category == category}
+      category.destroy
+      redirect "/categories"
+    else
+      flash[:message] = "You may only delete categories with no expenses."
+      redirect "/categories/#{category.id}"
+    end
   end
 
 end
