@@ -1,0 +1,23 @@
+<h1>Expense</h1>
+
+<table>
+  <tr>
+    <th>Date</th><th>Category</th><th>Vendor</th><th>Amount</th>
+  </tr>
+
+  <form action="/expenses/<%= @expense.id %>" method="post">
+    <tr>
+      <td><input type="date" name="date" value=<%= @expense.date %></td>
+      <td><input type="text" name="category[name]"
+        value="<%= @expense.category.name %>"></td>
+      <td><input type="text" name="vendor" value="<%= @expense.vendor %>"></td>
+      <td>$<input type="number" name="amount" step="0.01"
+        min=0 class="right-justify" value=<%= @expense.amount %>></td>
+    </tr>
+</table>
+<br>
+
+<input type="hidden" name="_method" value="patch">
+<input type="submit" value="Update">
+
+</form>

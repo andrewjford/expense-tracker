@@ -32,7 +32,15 @@
   margin: 0 auto;
 }
 
+.inline {
+  display: inline-block;
+}
+
 .right-justify {
+  text-align: right;
+}
+
+.float-right {
   float: right;
 }
 

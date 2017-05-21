@@ -15,8 +15,16 @@ class ExpensesController < ApplicationController
     erb :"expenses/index"
   end
 
-  post '/expenses' do
+  get '/expenses/:id/edit' do
+    @expense = current_user.expenses.find_by(id: params[:id])
+    if @expense
+      erb :"/expenses/edit"
+    else
+      redirect "/expenses/#{params[:id]}"
+    end
+  end
 
+  post '/expenses' do
     #get category
     new_category = params[:new_category]
     if new_category != ""
@@ -34,7 +42,18 @@ class ExpensesController < ApplicationController
     end
   end
 
-  post '/expenses/:id' do
+  patch '/expenses/:id' do
+    expense = current_user.expenses.find_by(id: params[:id])
+    category = Category.find_or_create_by(name: params[:category][:name],
+      user: current_user)
+    if expense
+      expense.update(date: params[:date],category: category,
+      vendor: params[:vendor], amount: params[:amount])
+    end
+    redirect "/expenses/#{params[:id]}"
+  end
+
+  delete '/expenses/:id' do
     expense = current_user.expenses.find_by(id: params[:id])
     if expense
       expense.destroy

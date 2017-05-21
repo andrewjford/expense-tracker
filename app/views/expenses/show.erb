@@ -9,7 +9,15 @@
     <td><%= @expense.date.strftime('%D') %></td>
     <td><%= @expense.category.name %></td>
     <td><%= @expense.vendor %></td>
-    <td>$<div class="right-justify"><%= @expense.amount %></div></td>
+    <td>$<div class="float-right"><%= @expense.amount %></div></td>
   </tr>
 
 </table>
+<br>
+<form class="inline" action="/expenses/<%= @expense.id%>/edit" method="get">
+  <input type="submit" value="Edit">
+</form>
+<form class="inline" action="/expenses/<%= @expense.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>
