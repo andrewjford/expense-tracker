@@ -29,4 +29,11 @@ class ExpensesController < ApplicationController
     end
   end
 
+  get '/expenses/:id' do
+    expense = current_user.expenses.find_by(id: params[:id])
+    if expense
+      expense.destroy
+    end
+    redirect "/expenses"
+  end
 end

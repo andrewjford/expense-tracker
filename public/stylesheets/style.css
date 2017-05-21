@@ -88,6 +88,10 @@ nav li a:hover {
   background-color: #222;
 }
 
+table {
+  min-width: 500px;
+}
+
 th, td {
   padding: 2px 7px;
 }

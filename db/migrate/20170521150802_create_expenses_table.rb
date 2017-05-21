@@ -4,6 +4,7 @@ class CreateExpensesTable < ActiveRecord::Migration[4.2]
       t.datetime :date
       t.decimal :amount
       t.string :vendor
+      t.integer :category_id
       t.integer :user_id
       t.timestamps
     end

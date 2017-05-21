@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520230908) do
+ActiveRecord::Schema.define(version: 20170521150802) do
 
   create_table "categories", force: :cascade do |t|
     t.string  "name"
-    t.integer "expense_id"
     t.integer "user_id"
   end
 
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170520230908) do
     t.datetime "date"
     t.decimal  "amount"
     t.string   "vendor"
+    t.integer  "category_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
