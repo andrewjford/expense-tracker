@@ -5,6 +5,11 @@ class ExpensesController < ApplicationController
     erb :"expenses/new"
   end
 
+  get '/expenses/:id' do
+    @expense = current_user.expenses.find(params[:id])
+    erb :"expenses/show"
+  end
+
   get '/expenses' do
     @expenses = current_user.expenses
     erb :"expenses/index"
@@ -29,7 +34,7 @@ class ExpensesController < ApplicationController
     end
   end
 
-  get '/expenses/:id' do
+  post '/expenses/:id' do
     expense = current_user.expenses.find_by(id: params[:id])
     if expense
       expense.destroy

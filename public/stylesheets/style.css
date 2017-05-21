@@ -32,6 +32,10 @@
   margin: 0 auto;
 }
 
+.right-justify {
+  float: right;
+}
+
 a:link {
   text-decoration: none;
 }

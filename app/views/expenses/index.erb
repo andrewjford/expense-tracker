@@ -10,7 +10,8 @@
     <td><%= expense.date.strftime('%D') %></td>
     <td><%= expense.category.name %></td>
     <td><%= expense.vendor %></td>
-    <td>$<%= expense.amount %></td>
+    <td>$<a class="right-justify" href="/expenses/<%= expense.id %>">
+    <%= expense.amount %></a></td>
   </tr>
   <% end %>
 

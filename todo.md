@@ -5,7 +5,6 @@ views
   user index
   user reports
   expense edit
-  expense show
   expense delete
   categories edit
   categories show
@@ -20,3 +19,4 @@ prevent repeated form submittals
 fix flash messages
 do users need to have many categories through expenses also?
 make table view for expense index
+expense index - right justify amount column
