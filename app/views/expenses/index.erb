@@ -11,7 +11,7 @@
     <td><%= expense.category.name %></td>
     <td><%= expense.vendor %></td>
     <td>$<a class="float-right" href="/expenses/<%= expense.id %>">
-    <%= expense.amount %></a></td>
+    <%= expense.display_amount %></a></td>
   </tr>
   <% end %>
 

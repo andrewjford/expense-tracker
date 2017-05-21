@@ -9,7 +9,7 @@
     <td><%= @expense.date.strftime('%D') %></td>
     <td><%= @expense.category.name %></td>
     <td><%= @expense.vendor %></td>
-    <td>$<div class="float-right"><%= @expense.amount %></div></td>
+    <td>$<div class="float-right"><%= @expense.display_amount %></div></td>
   </tr>
 
 </table>
