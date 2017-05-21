@@ -5,3 +5,7 @@
 
 
 <h2>Monthly summary by category here</h2>
+
+<% @expenses.each do |expense| %>
+  <p><%= expense.date.strftime('%D') %> <%= expense.category.name %> $<%= expense.amount %></p>
+<% end %>

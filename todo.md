@@ -16,4 +16,8 @@ controllers
   /user_id/edit
 
 signup - no user repeats
+signup - lowercase usernames
 signup - test email format
+new expense - dollars and cents input
+prevent repeated form submittals
+fix flash messages

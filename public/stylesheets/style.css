@@ -6,6 +6,10 @@
   color: #ff0000;
 }
 
+.bolded {
+  font-weight: bold;
+}
+
 .button-link {
   font: bold 18px Arial;
   text-decoration: none;

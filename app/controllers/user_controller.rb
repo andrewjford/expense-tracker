@@ -1,6 +1,7 @@
 class UserController < ApplicationController
 
   get '/:user/' do
+    @expenses = current_user.expenses
     erb :"users/index"
   end
 
