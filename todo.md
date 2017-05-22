@@ -1,8 +1,5 @@
-Models
-  expense by month
 
 views
-  user index
   user reports
 
 css - fix navbar sizing/add hamburger button
