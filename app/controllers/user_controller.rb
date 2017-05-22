@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
   get '/:user/' do
     @totals = current_user.total_expenses_by_category(Time.now.month)
-    erb :"users/index"
+    erb :"users/home"
   end
 
   #this path just redirects to actual path with user.id added

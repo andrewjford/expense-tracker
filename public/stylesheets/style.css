@@ -48,6 +48,10 @@
   float: right;
 }
 
+a {
+  color: #1b351c;
+}
+
 a:link {
   text-decoration: none;
 }
@@ -131,6 +135,18 @@ nav li a:hover {
 
 table {
   min-width: 500px;
+}
+
+table a {
+  color: #1b351c;
+}
+
+table a:hover {
+  color: #389639;
+}
+
+table td:hover {
+  background-color: #D1E6D8;
 }
 
 th, td {
