@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   get '/:user/' do
-    @expenses = current_user.expenses
+    @totals = current_user.total_expenses_by_category(Time.now.month)
     erb :"users/index"
   end
 

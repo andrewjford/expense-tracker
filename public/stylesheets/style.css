@@ -36,6 +36,10 @@
   display: inline-block;
 }
 
+.monthly-table {
+  min-width: 300px;
+}
+
 .right-justify {
   text-align: right;
 }

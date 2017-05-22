@@ -1,5 +1,21 @@
 <h1>Summary</h1>
 
 <a href="/expenses/new" class="button-link">Add Expense</a>
+<br></br>
 
-<h2>Monthly summary by category here</h2>
+<h3>Current Month</h3>
+
+<table class="monthly-table">
+  <tr>
+    <th>Category</th><th>Amount</th>
+  </tr>
+
+  <% @totals.each do |key,value| %>
+  <tr>
+    <td><a href="/categories/<%= key.id %>"><%=
+      key.name %></a></td>
+    <td>$<div class="float-right"><%= value %></div></td>
+  </tr>
+  <% end %>
+
+</table>
