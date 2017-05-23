@@ -3,7 +3,6 @@ views
   user reports
 
 monthly summary - switch months
-css - fix link colorings in tables
 css - fix navbar sizing/add hamburger button
 starter categories
 fix flash messages
