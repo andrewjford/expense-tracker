@@ -2,11 +2,34 @@ class UserController < ApplicationController
 
   get '/summary' do
     if logged_in?
-      @totals = current_user.total_expenses_by_category(Time.now.month)
+      @report_date = Time.now
+      @totals = current_user.total_expenses_by_category(@report_date.month)
       erb :"users/home"
     else
       redirect '/'
     end
+  end
+
+  get '/summary/:back' do
+    if logged_in?
+      @report_date = months_back(Time.now,params[:back])
+      @totals = current_user.total_expenses_by_category(@report_date.month)
+      erb :"users/home"
+    else
+      redirect '/'
+    end
+  end
+
+  def months_back(datetime,num)
+    #takes datetime and number of months to go back
+    #returns datetime
+    month = datetime.month - num.to_i
+    year = datetime.year
+    if month <= 0
+      month += 12
+      year -= 1
+    end
+    Time.new(year,month,datetime.day)
   end
 
   get '/profile' do

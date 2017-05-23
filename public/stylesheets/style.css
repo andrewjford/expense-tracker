@@ -32,6 +32,10 @@
   margin: 0 auto;
 }
 
+.float-right {
+  float: right;
+}
+
 .inline {
   display: inline-block;
 }
@@ -44,8 +48,12 @@
   text-align: right;
 }
 
-.float-right {
-  float: right;
+.summary-container {
+  width: 300px;
+}
+
+.table-title {
+  text-align: center;
 }
 
 a {
@@ -135,6 +143,7 @@ nav li a:hover {
 
 table {
   min-width: 500px;
+  background-color: rgba(254,255,253,0.40);
 }
 
 table a {
@@ -149,11 +158,11 @@ table td:hover {
   background-color: #D1E6D8;
 }
 
-th, td {
-  padding: 2px 7px;
-}
-
 table, th, td {
   border: 1px solid green;
   border-collapse: collapse;
+}
+
+th, td {
+  padding: 2px 7px;
 }

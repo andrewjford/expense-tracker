@@ -3,21 +3,26 @@
 <a href="/expenses/new" class="button-link">Add Expense</a>
 <br></br>
 
-<div class="table-title">
-  <h3>Current Month</h3>
+<div class="summary-container">
+  <div class="table-title">
+    <a href="" class="button-link">Prev Month</a>
+    <h3><%= @report_date.strftime("%B %Y") %></h3>
+    <a href="" class="button-link">Next Month</a>
+  </div>
+
+  <table class="monthly-table">
+    <tr>
+      <th>Category</th><th>Amount</th>
+    </tr>
+
+    <% @totals.each do |key,value| %>
+    <tr>
+      <td><a href="/categories/<%= key.id %>"><%=
+        key.name %></a></td>
+      <td>$<div class="float-right"><%= value %></div></td>
+    </tr>
+    <% end %>
+
+  </table>
+
 </div>
-
-<table class="monthly-table">
-  <tr>
-    <th>Category</th><th>Amount</th>
-  </tr>
-
-  <% @totals.each do |key,value| %>
-  <tr>
-    <td><a href="/categories/<%= key.id %>"><%=
-      key.name %></a></td>
-    <td>$<div class="float-right"><%= value %></div></td>
-  </tr>
-  <% end %>
-
-</table>

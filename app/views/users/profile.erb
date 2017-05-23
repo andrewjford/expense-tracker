@@ -3,6 +3,6 @@
 <p>Username: <%= @user.username %></p>
 <p>Email: <%= @user.email %></p>
 
-<form action="/users/:user/edit" method="get">
+<form action="/users/<%= @user.id %>/edit" method="get">
   <input type="submit" value="Change Password">
 </form>
