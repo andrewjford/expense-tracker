@@ -1,13 +1,16 @@
 <h1>Summary</h1>
 
-<a href="/expenses/new" class="button-link">Add Expense</a>
-<br></br>
 
 <div class="summary-container">
-  <div class="table-title">
-    <a href="" class="button-link">Prev Month</a>
-    <h3><%= @report_date.strftime("%B %Y") %></h3>
-    <a href="" class="button-link">Next Month</a>
+  <div class="">
+    <ul class="table-title">
+      <li><a href="/summary/<%= @prev_month %>" class="button-link">
+        Prev</a></li>
+      <li><h3 class="summary-table-month"><%= @report_date.strftime("%b %Y") %>
+      </h3></li>
+      <li><a href="/summary/<%= @next_month %>" class="button-link">
+        Next</a></li>
+    </ul>
   </div>
 
   <table class="monthly-table">
@@ -24,5 +27,8 @@
     <% end %>
 
   </table>
+
+  <br></br>
+  <a href="/expenses/new" class="button-link">Add Expense</a>
 
 </div>

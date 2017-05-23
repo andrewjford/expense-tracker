@@ -20,7 +20,11 @@
   border-right: 1px solid #CCCCCC;
   border-bottom: 1px solid #CCCCCC;
   border-left: 1px solid #CCCCCC;
-  border-radius: 4px;
+  border-radius: 5px;
+}
+
+.button-link:hover {
+  color: #ceffd0;
 }
 
 .centered {
@@ -52,8 +56,23 @@
   width: 300px;
 }
 
+.summary-table-month {
+  margin-top: 0;
+}
+
 .table-title {
   text-align: center;
+}
+
+.table-title {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.table-title li {
+  width: 100px;
+  float: left;
 }
 
 a {
