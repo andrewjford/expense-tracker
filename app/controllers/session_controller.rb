@@ -2,7 +2,7 @@ class SessionController < ApplicationController
 
   get '/' do
     if logged_in?
-      redirect "/#{current_user.id}/"
+      redirect "/summary"
     else
       erb :"/sessions/welcome"
     end
@@ -29,7 +29,7 @@ class SessionController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/#{user.id}/"
+      redirect "/summary"
     else
       flash[:message] = "Login failed."
       redirect "/login"
