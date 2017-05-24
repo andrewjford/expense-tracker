@@ -42,17 +42,24 @@ class ExpensesController < ApplicationController
   post '/expenses' do
     #get category
     new_category = params[:new_category]
-    if new_category != ""
+
+    if new_category != ""  #if new category field has content
       category = Category.find_or_create_by(name: new_category, user: current_user)
+
+    #this will trigger if user chooses no category or new category
     elsif new_category == "" && params[:existing_category] == nil
-      category = nil  #this will trigger if user chooses no category/new category
+      category = nil
+
+    #should fall to this when a radio button is selected
     else
       category = current_user.categories.find(params[:existing_category])
     end
 
+    #make new expense
     expense = Expense.new(date:params[:date],amount:params[:amount],
     vendor:params[:vendor],category: category,user: current_user)
     if expense.save
+      flash[:message] = "Added expense."
       redirect "/expenses"
     else
       flash[:message] = "Please enter a valid date,amount, and category."
@@ -74,6 +81,7 @@ class ExpensesController < ApplicationController
   delete '/expenses/:id' do
     expense = current_user.expenses.find_by(id: params[:id])
     if expense
+      flash[:message] = "Expense deleted."
       expense.destroy
     end
     redirect "/expenses"

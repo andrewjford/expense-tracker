@@ -27,6 +27,10 @@
   color: #ceffd0;
 }
 
+.category-list {
+  font-size: 1.2em;
+}
+
 .category-list a:hover {
   color: #389639;
 }

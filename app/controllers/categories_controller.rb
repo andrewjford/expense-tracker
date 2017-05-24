@@ -43,6 +43,7 @@ class CategoriesController < ApplicationController
   delete '/categories/:id' do
     category = current_user.categories.find_by(id: params[:id])
     if current_user.expenses.none?{|exp| exp.category == category}
+      flash[:message] = "Category #{category.name} deleted."
       category.destroy
       redirect "/categories"
     else
