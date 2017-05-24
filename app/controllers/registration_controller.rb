@@ -12,6 +12,7 @@ class RegistrationController < ApplicationController
     user = User.new(params[:user])
     if User.name_available?(params[:user][:username]) && user.save
       session[:user_id] = user.id
+      user.populate_default_categories  #adds default categories
       redirect "/summary"
     else
       flash[:message] = "Failed to create new user."

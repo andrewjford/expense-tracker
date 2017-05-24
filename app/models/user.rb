@@ -51,24 +51,25 @@ class User < ActiveRecord::Base
     #converts values to string and adds a zero if only one decimal point
     new_hash = {}
     hash.each do |key,value|
-      if value.to_s.split('.').last.size == 2
+      if value.to_s.split('.').last.size == 2 #if stored with 2 decimals
         new_hash[key] = value.to_s
-      else
+      elsif value.to_s.split('.').size == 1 #if no number is stored, only 1 in array
+        new_hash[key] = value.to_s
+      else                                  #else is num with 1 decimal
         new_hash[key] = value.to_s.concat("0")
       end
     end
     new_hash
   end
 
-  def slug
-    out = self.name.lowercase.gsub(/[^a-zA-Z\d\s]/,"")
-    out.gsub!(" ","-")
-    out.downcase
-  end
-
-  def self.find_by_slug(slug)
-    self.all.find do |item|
-      item.slug == slug
-    end
+  def populate_default_categories
+    Category.create(name: "Apparel", user: self)
+    Category.create(name: "Bars & Alcohol", user: self)
+    Category.create(name: "Dining Out", user: self)
+    Category.create(name: "Entertainment", user: self)
+    Category.create(name: "Groceries", user: self)
+    Category.create(name: "Transportation", user: self)
+    Category.create(name: "Travel", user: self)
+    Category.create(name: "Utilities", user: self)
   end
 end
