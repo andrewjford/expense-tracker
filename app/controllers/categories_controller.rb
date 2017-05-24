@@ -5,8 +5,8 @@ class CategoriesController < ApplicationController
     erb :"/categories/index"
   end
 
-  get '/categories/:id' do
-    @category = current_user.categories.find_by(id: params[:id])
+  get '/categories/:slug' do
+    @category = Category.find_by_slug(params[:slug],current_user)
     @filtered_expenses = current_user.expenses_by_category(@category)
     erb :"/categories/show"
   end
