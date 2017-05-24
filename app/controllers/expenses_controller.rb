@@ -44,6 +44,8 @@ class ExpensesController < ApplicationController
     new_category = params[:new_category]
     if new_category != ""
       category = Category.find_or_create_by(name: new_category, user: current_user)
+    elsif new_category == "" && params[:existing_category] == nil
+      category = nil  #this will trigger if user chooses no category/new category
     else
       category = current_user.categories.find(params[:existing_category])
     end
@@ -53,6 +55,7 @@ class ExpensesController < ApplicationController
     if expense.save
       redirect "/expenses"
     else
+      flash[:message] = "Please enter a valid date,amount, and category."
       redirect "/expenses/new"
     end
   end

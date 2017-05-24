@@ -22,5 +22,8 @@
     id="new_category" name="new_category">
 
   <br></br>
+  <% if flash.has?(:message) %>
+    <p class="flash-text"><%= flash[:message] %></p>
+  <% end %>
   <input type="submit" value="Enter" onclick="this.disabled = true;this.form.submit();">
 </form>
