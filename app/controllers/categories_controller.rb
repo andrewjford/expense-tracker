@@ -11,8 +11,8 @@ class CategoriesController < ApplicationController
     erb :"/categories/show"
   end
 
-  get '/categories/:id/edit' do
-    @category = current_user.categories.find_by(id: params[:id])
+  get '/categories/:slug/edit' do
+    @category = Category.find_by_slug(params[:slug],current_user)
     @filtered_expenses = current_user.expenses_by_category(@category)
     erb :"/categories/edit"
   end
@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
     category = current_user.categories.find_by(id: params[:id])
     category.update(name: params[:name]) if params[:name] != ""
 
-    redirect "/categories/#{category.id}"
+    redirect "/categories/#{category.slug}"
   end
 
   delete '/categories/:id' do
@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
       redirect "/categories"
     else
       flash[:message] = "You may only delete categories with no expenses."
-      redirect "/categories/#{category.id}"
+      redirect "/categories/#{category.slug}"
     end
   end
 

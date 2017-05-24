@@ -18,7 +18,10 @@
 
 </table>
 <br>
-<form class="inline" action="/categories/<%= @category.id%>/edit" method="get">
+<% if flash.has?(:message) %>
+  <p class="flash-text"><%= flash[:message] %></p>
+<% end %>
+<form class="inline" action="/categories/<%= @category.slug%>/edit" method="get">
   <input type="submit" value="Edit Category">
 </form>
 <form class="inline" action="/categories/<%= @category.id%>" method="post">
