@@ -54,6 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def last_decimal(hash)
+    #Adds zero to cents column if stored without one (ex. $12.5)
     #converts values to string and adds a zero if only one decimal point
     new_hash = {}
     hash.each do |key,value|
@@ -71,7 +72,6 @@ class User < ActiveRecord::Base
   def populate_default_categories
     #method to be run when new user is created
     Category.create(name: "Apparel", user: self)
-    Category.create(name: "Bars & Alcohol", user: self)
     Category.create(name: "Dining Out", user: self)
     Category.create(name: "Entertainment", user: self)
     Category.create(name: "Groceries", user: self)
