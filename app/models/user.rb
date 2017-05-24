@@ -32,6 +32,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def expenses_by_category_and_month(category,month)
+    self.expenses.find_all do |expense|
+      expense.category == category && expense.date.month == month
+    end
+  end
+
   def total_expenses_by_category(month)
     #returns hash with category as key and total dollars as value
 

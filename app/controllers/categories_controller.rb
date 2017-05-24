@@ -17,6 +17,13 @@ class CategoriesController < ApplicationController
     erb :"/categories/edit"
   end
 
+  get '/categories/:slug/:month' do
+    @category = Category.find_by_slug(params[:slug],current_user)
+    @filtered_expenses = current_user.expenses_by_category_and_month(@category,
+      params[:month].to_i)
+    erb :"/categories/show"
+  end
+
   post '/categories' do
     if new_category = Category.new(name: params[:name], user: current_user)
       new_category.save
