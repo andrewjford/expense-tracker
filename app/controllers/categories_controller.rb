@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
     erb :"/categories/edit"
   end
 
+  #for report restricted by category and month
   get '/categories/:slug/:month' do
     @category = Category.find_by_slug(params[:slug],current_user)
     @filtered_expenses = current_user.expenses_by_category_and_month(@category,
@@ -42,6 +43,8 @@ class CategoriesController < ApplicationController
 
   delete '/categories/:id' do
     category = current_user.categories.find_by(id: params[:id])
+
+    #check if there exist any expenses with this category
     if current_user.expenses.none?{|exp| exp.category == category}
       flash[:message] = "Category #{category.name} deleted."
       category.destroy

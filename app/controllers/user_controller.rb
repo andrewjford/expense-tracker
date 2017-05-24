@@ -5,6 +5,8 @@ class UserController < ApplicationController
   end
 
   get '/summary/:back' do
+    #:back param represents number of months prior to Time.now
+    #used to cycle monthly summaries on view with prev/next links
     if logged_in?
       @prev_month = params[:back].to_i + 1
       @next_month = params[:back].to_i - 1
@@ -14,18 +16,6 @@ class UserController < ApplicationController
     else
       redirect '/'
     end
-  end
-
-  def subtract_months(datetime,num)
-    #takes datetime and number of months to go back
-    #returns datetime
-    month = datetime.month - num.to_i
-    year = datetime.year
-    if month <= 0
-      month += 12
-      year -= 1
-    end
-    Time.new(year,month,datetime.day)
   end
 
   get '/profile' do

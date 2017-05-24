@@ -1,5 +1,3 @@
-#require './config/environment'
-
 class ApplicationController < Sinatra::Base
 
   configure do
@@ -17,6 +15,19 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!current_user
+    end
+
+    def subtract_months(datetime,num)
+      #Used in user_controller's summary page
+      #takes datetime and number of months to go back
+      #returns datetime
+      month = datetime.month - num.to_i
+      year = datetime.year
+      if month <= 0
+        month += 12
+        year -= 1
+      end
+      Time.new(year,month,datetime.day)
     end
   end
 

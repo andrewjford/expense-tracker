@@ -5,6 +5,7 @@ class ExpensesController < ApplicationController
     erb :"expenses/new"
   end
 
+  #show all expenses
   get '/expenses/all' do
     @expenses = current_user.expenses
     #sort expenses by date (first being most recent)
@@ -17,6 +18,7 @@ class ExpensesController < ApplicationController
     erb :"expenses/show"
   end
 
+  #default expenses view, limits to most recent 20
   get '/expenses' do
     @expenses = current_user.expenses
     #sort expenses by date (first being most recent), then only take first 20
@@ -33,6 +35,7 @@ class ExpensesController < ApplicationController
     end
   end
 
+  #shows only expenses with the given description
   get '/expenses/vendors/:vendor' do
     @vendor = params[:vendor]
     @filtered_expenses = current_user.expenses_by_vendor(@vendor)

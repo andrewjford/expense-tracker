@@ -3,7 +3,9 @@ views
   user reports
 
 document up stuff
-fix categories link from monthlys
 css - fix navbar sizing/add hamburger button
-fix flash messages - category delete flash is working
+fluid responsive design
+deploy to heroku
+
+flash messages on login and signup don't work
 expense edit - add dropdown menu to categories
