@@ -27,6 +27,10 @@
   color: #ceffd0;
 }
 
+.category-list a:hover {
+  color: #389639;
+}
+
 .centered {
   text-align: center;
 }
@@ -50,6 +54,10 @@
 
 .right-justify {
   text-align: right;
+}
+
+.show-all-link {
+  font-size: 0.9em;
 }
 
 .summary-container {

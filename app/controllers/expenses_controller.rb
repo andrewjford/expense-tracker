@@ -5,6 +5,13 @@ class ExpensesController < ApplicationController
     erb :"expenses/new"
   end
 
+  get '/expenses/all' do
+    @expenses = current_user.expenses
+    #sort expenses by date (first being most recent)
+    @expenses = @expenses.sort_by {|expense| expense.date}.reverse
+    erb :"expenses/all"
+  end
+
   get '/expenses/:id' do
     @expense = current_user.expenses.find(params[:id])
     erb :"expenses/show"

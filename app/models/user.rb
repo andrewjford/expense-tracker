@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def populate_default_categories
+    #method to be run when new user is created
     Category.create(name: "Apparel", user: self)
     Category.create(name: "Bars & Alcohol", user: self)
     Category.create(name: "Dining Out", user: self)
