@@ -2,15 +2,15 @@
 
 
 <div class="summary-container">
-  <div class="">
-    <ul class="table-title">
-      <li><a href="/summary/<%= @prev_month %>" class="button-link">
-        Prev</a></li>
-      <li><h3 class="summary-table-month"><%= @report_date.strftime("%b %Y") %>
-      </h3></li>
-      <li><a href="/summary/<%= @next_month %>" class="button-link">
-        Next</a></li>
-    </ul>
+  <div>
+    <div class="table-title clearfix">
+      <div><a href="/summary/<%= @prev_month %>" class="button-link">
+        Prev</a></div>
+      <div><h3 class="summary-table-month"><%= @report_date.strftime("%b %Y") %>
+      </h3></div>
+      <div><a href="/summary/<%= @next_month %>" class="button-link">
+        Next</a></div>
+    </div>
   </div>
 
   <table class="monthly-table">
@@ -31,7 +31,9 @@
     </tr>
   </table>
 
-  <br></br>
-  <a href="/expenses/new" class="button-link">Add Expense</a>
+  <!-- <br></br>
+  <div class="center-button">
+    <a href="/expenses/new" class="button-link">Add Expense</a>
+  </div> -->
 
 </div>

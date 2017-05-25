@@ -3,23 +3,24 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title></title>
+    <title>Expense Tracker</title>
   </head>
   <body>
     <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <% if logged_in? %>
-          <li><a href="/expenses">Expenses</a></li>
-          <li><a href="/expenses/new">Add Expense</a></li>
-          <li><a href="/categories">Categories</a></li>
-          <li><a href="/profile">Profile</a></li>
+        <a class="menu-btn">&#9776;</a>
+        <div class="responsive-menu">
+          <a href="/">Home</a>
+          <% if logged_in? %>
+            <a href="/expenses">Expenses</a>
+            <a href="/expenses/new">Add Expense</a>
+            <a href="/categories">Categories</a>
+            <a href="/profile">Profile</a>
 
-          <li class="float-right"><a href="/logout">Logout</a></li>
-        <% else %>
-          <li><a href="/login">Login</a></li>
-        <% end %>
-      </ul>
+            <a class="float-right" id="logout-button" href="/logout">Logout</a>
+          <% else %>
+            <a href="/login">Login</a>
+          <% end %>
+        </div>
     </nav>
 
     <main>
@@ -31,5 +32,9 @@
         Andrew Ford</a></p>
     </footer>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/menu.js">
+
+    </script>
   </body>
 </html>
