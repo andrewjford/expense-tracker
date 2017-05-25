@@ -50,7 +50,18 @@ class User < ActiveRecord::Base
         expense.category == category ? expense.amount : expense.amount*0
       end
     end
-    self.last_decimal(hash)
+    hash
+  end
+
+  def get_monthly_totals(month)
+    #wrapper for total_expenses_by_category
+    #returns a hash that is converted to proper presentation using #last_decimal
+    #returns a total
+    hash = self.total_expenses_by_category(month)
+    out = {}
+    out[:hash] = self.last_decimal(hash)
+    out[:grand_total] = hash.sum {|key,value| value}
+    out
   end
 
   def last_decimal(hash)

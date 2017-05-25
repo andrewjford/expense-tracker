@@ -11,7 +11,9 @@ class UserController < ApplicationController
       @prev_month = params[:back].to_i + 1
       @next_month = params[:back].to_i - 1
       @report_date = subtract_months(Time.now,params[:back])
-      @totals = current_user.total_expenses_by_category(@report_date.month)
+      totals = current_user.get_monthly_totals(@report_date.month)
+      @monthly_totals = totals[:hash]      #hash of categories and totals
+      @grand_total = totals[:grand_total]  #for grand total at bottom
       erb :"users/home"
     else
       redirect '/'

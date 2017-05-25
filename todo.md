@@ -2,7 +2,6 @@
 views
   user reports
 
-add total to monthly summary
 css - fix navbar sizing/add hamburger button
 fluid responsive design
 deploy to heroku

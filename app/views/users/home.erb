@@ -18,14 +18,17 @@
       <th>Category</th><th>Amount</th>
     </tr>
 
-    <% @totals.each do |category,value| %>
+    <% @monthly_totals.each do |category,value| %>
     <tr>
       <td><a href="/categories/<%= category.slug %>/<%= @report_date.month %>"><%=
         category.name %></a></td>
       <td>$<div class="float-right"><%= value %></div></td>
     </tr>
     <% end %>
-
+    <tr>
+      <td><div class="bolded">Monthly Total</div></td><td>$ <div class="float-right bolded">
+      <%= @grand_total %></div></td>
+    </tr>
   </table>
 
   <br></br>
