@@ -67,7 +67,7 @@
 }
 
 .menu-btn {
-  display: block;
+  display: none;
 }
 
 .monthly-table {
@@ -214,20 +214,27 @@ th, td {
 }
 
 .responsive-menu{
-	display: none;
+	display: block;
 }
 
 .expand {
-	display: block !important;
+	display: block;
 }
 
-@media only screen and (max-width:460px) {
+@media only screen and (max-width:960px) {
   main {
     font-size: 150%;
   }
-  nav li {
-    float: none;
+  .responsive-menu a {
+    width: 100%;
   }
+
+  nav a.menu-btn {
+    display: block;
+    top: 0;
+    left: 0;
+  }
+
 }
 
 /*@media only screen and (max-width:590px) {
