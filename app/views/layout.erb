@@ -7,19 +7,23 @@
   </head>
   <body>
     <nav>
+      <div class="menuIcon">
         <a class="menu-btn">&#9776;</a>
-        <div class="responsive-menu">
-          <a href="/">Home</a>
+      </div>
+      <div class="responsive-menu">
+        <ul>
+          <li><a href="/">Home</a></li>
           <% if logged_in? %>
-            <a href="/expenses">Expenses</a>
-            <a href="/expenses/new">Add Expense</a>
-            <a href="/categories">Categories</a>
-            <a href="/profile">Profile</a>
-            <a id="logout-button" href="/logout">Logout</a>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/expenses/new">Add Expense</a></li>
+            <li><a href="/categories">Categories</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a id="logout-button" href="/logout">Logout</a></li>
           <% else %>
-            <a href="/login">Login</a>
+            <li><a href="/login">Login</a></li>
           <% end %>
-        </div>
+        </ul>
+      </div>
     </nav>
 
     <main>

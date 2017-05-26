@@ -66,10 +66,6 @@
   display: inline-block;
 }
 
-.menu-btn {
-  display: none;
-}
-
 .monthly-table {
   min-width: 70%;
 }
@@ -213,47 +209,126 @@ th, td {
   padding: 2px 7px;
 }
 
-.responsive-menu{
-	display: block;
+/**** Navbar ****/
+
+.responsive-menu {
+  display: none;
 }
 
-.expand {
-	display: block;
+.responsive-menu ul {
+  padding: 0;
+  margin: 0;
 }
 
-@media only screen and (max-width:960px) {
+.responsive-menu li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+nav .responsive-menu a {
+  padding: 14px 2px;
+}
+
+/*
+
+.responsive-menu ul li {
+  display: inline-block;
+  float: left;
+  list-style: none;
+  padding: 0 0 0 5px;
+  margin: 0;
+}
+
+.menuIcon {
+  display: none;
+  background: #000;
+  width: 100%;
+  text-align: center;
+}
+.menuIcon:hover {
+  background: #999;
+}
+.menuIcon a {
+  width: 100%;
+  display: inline-block;
+  color: #fff;
+}
+.menuIcon a img {
+  vertical-align: middle;
+}
+
+.responsive-menu {
+  width: 100%;
+  float: none;
+  overflow: hidden;
+  text-align: center;
+  -webkit-transition: max-height 0.5s;
+  -moz-transition: max-height 0.5s;
+  transition: max-height 0.5s;
+}
+
+.responsive-menu ul li {
+  display: block;
+  width: 100%;
+  background: #000;
+  border-top: 1px solid #4d4d4d;
+}
+
+.responsive-menu ul li:hover {
+  background: #999;
+}
+.responsive-menu ul li a {
+  color: #fff;
+  text-shadow: #848484 0px 1px 2px;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.menuOpen {
+  max-height: 1000px;
+  -webkit-transition: max-height 0.5s;
+  -moz-transition: max-height 0.5s;
+  transition: max-height 0.5s;
+}
+
+.menuIcon {
+  display: inline-block;
+}*/
+
+
+@media only screen and (min-width:760px) {
   main {
     font-size: 150%;
   }
-  .responsive-menu a {
-    width: 100%;
+
+  .responsive-menu {
+    display: block !important;
   }
 
-  nav a.menu-btn {
-    display: block;
-    top: 0;
-    left: 0;
+  .responsive-menu li {
+    float: left;
   }
 
-}
-
-/*@media only screen and (max-width:590px) {
-  nav a {
+  .menu-btn {
     display: none;
   }
-  nav a.menu-btn {
+}
+
+@media only screen and (max-width: 760px) {
+  .responsive-menu.expand {
     display: block;
-    float: left;
-    width: auto;
-    font-size: 1.5em;
-    padding: 10px 20px;
   }
 
-  #logout-button {
-    font-size: 1.5em;
+  .responsive-menu.expand li {
     display: block;
+    width: 100%;
   }
-}*/
+  .responsive-menu.expand a {
+    display: block;
+    width: 100%;
+  }
+}
 
 @media only screen and (max-width:960px) {
   main {
