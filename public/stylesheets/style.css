@@ -83,7 +83,7 @@
 }
 
 .table-title {
-  width: 70%;
+  width: 300px;
   text-align: center;
   list-style-type: none;
   padding: 0;
@@ -154,10 +154,10 @@ li {
 }
 
 main {
-  margin: 0px 8px 100px 8px;
+  margin: 0px 8px 0px 8px;
   min-height: 400px;
-  clear: both;
   padding-top: 40px;
+  padding-bottom: 40px;
   width: 960px;
 }
 
