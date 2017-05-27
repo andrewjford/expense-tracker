@@ -96,6 +96,7 @@
 
 .welcome-container {
   width: 90%;
+  max-width: 820px;
   margin: 0 auto;
 }
 
@@ -270,6 +271,7 @@ nav .responsive-menu a {
   }
 }
 
+/* Small screen settings */
 @media only screen and (max-width:480px) {
   main {
     font-size: 150%;
