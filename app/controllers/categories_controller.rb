@@ -43,7 +43,6 @@ class CategoriesController < ApplicationController
 
   post '/categories' do
     new_category = Category.find_or_initialize_by(name: params[:name], user: current_user)
-    binding.pry
     if !new_category.save
       flash[:message] = "Category not added."
     end
