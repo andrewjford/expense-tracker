@@ -1,28 +1,44 @@
 class CategoriesController < ApplicationController
 
   get '/categories' do
-    @categories = current_user.categories
-    erb :"/categories/index"
+    if logged_in?
+      @categories = current_user.categories
+      erb :"/categories/index"
+    else
+      redirect '/'
+    end
   end
 
   get '/categories/:slug' do
-    @category = Category.find_by_slug(params[:slug],current_user)
-    @filtered_expenses = current_user.expenses_by_category(@category)
-    erb :"/categories/show"
+    if logged_in?
+      @category = Category.find_by_slug(params[:slug],current_user)
+      @filtered_expenses = current_user.expenses_by_category(@category)
+      erb :"/categories/show"
+    else
+      redirect '/'
+    end
   end
 
   get '/categories/:slug/edit' do
-    @category = Category.find_by_slug(params[:slug],current_user)
-    @filtered_expenses = current_user.expenses_by_category(@category)
-    erb :"/categories/edit"
+    if logged_in?
+      @category = Category.find_by_slug(params[:slug],current_user)
+      @filtered_expenses = current_user.expenses_by_category(@category)
+      erb :"/categories/edit"
+    else
+      redirect '/'
+    end
   end
 
   #for report restricted by category and month
   get '/categories/:slug/:month' do
-    @category = Category.find_by_slug(params[:slug],current_user)
-    @filtered_expenses = current_user.expenses_by_category_and_month(@category,
-      params[:month].to_i)
-    erb :"/categories/show"
+    if logged_in?
+      @category = Category.find_by_slug(params[:slug],current_user)
+      @filtered_expenses = current_user.expenses_by_category_and_month(@category,
+        params[:month].to_i)
+      erb :"/categories/show"
+    else
+      redirect '/'
+    end
   end
 
   post '/categories' do

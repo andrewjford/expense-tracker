@@ -1,29 +1,45 @@
 class ExpensesController < ApplicationController
 
   get '/expenses/new' do
-    @categories = current_user.categories
-    erb :"expenses/new"
+    if logged_in?
+      @categories = current_user.categories
+      erb :"expenses/new"
+    else
+      redirect '/'
+    end
   end
 
   #show all expenses
   get '/expenses/all' do
-    @expenses = current_user.expenses
-    #sort expenses by date (first being most recent)
-    @expenses = @expenses.sort_by {|expense| expense.date}.reverse
-    erb :"expenses/all"
+    if logged_in?
+      @expenses = current_user.expenses
+      #sort expenses by date (first being most recent)
+      @expenses = @expenses.sort_by {|expense| expense.date}.reverse
+      erb :"expenses/all"
+    else
+      redirect '/'
+    end
   end
 
   get '/expenses/:id' do
-    @expense = current_user.expenses.find(params[:id])
-    erb :"expenses/show"
+    if logged_in?
+      @expense = current_user.expenses.find(params[:id])
+      erb :"expenses/show"
+    else
+      redirect '/'
+    end
   end
 
   #default expenses view, limits to most recent 20
   get '/expenses' do
-    @expenses = current_user.expenses
-    #sort expenses by date (first being most recent), then only take first 20
-    @expenses = @expenses.sort_by {|expense| expense.date}.reverse.first(20)
-    erb :"expenses/index"
+    if logged_in?
+      @expenses = current_user.expenses
+      #sort expenses by date (first being most recent), then only take first 20
+      @expenses = @expenses.sort_by {|expense| expense.date}.reverse.first(20)
+      erb :"expenses/index"
+    else
+      redirect '/'
+    end
   end
 
   get '/expenses/:id/edit' do
