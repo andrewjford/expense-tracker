@@ -7,7 +7,7 @@
 
   <tr>
     <td><%= @expense.date.strftime('%D') %></td>
-    <td><a href="/categories/<%= @expense.category.id %>"><%=
+    <td><a href="/categories/<%= @expense.category.slug %>"><%=
       @expense.category.name %></a></td>
     <td><a href="/expenses/vendors/<%= @expense.vendor %>"><%=
       @expense.vendor %></a></td>

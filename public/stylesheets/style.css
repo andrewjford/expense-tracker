@@ -53,11 +53,6 @@
   line-height: 0;
 }
 
-.container {
-  width: 600px;
-  margin: 0 auto;
-}
-
 .float-right {
   float: right;
 }
@@ -79,11 +74,12 @@
 }
 
 .summary-container {
-  width: 100%;
+  width: 80%;
 }
 
 .summary-table-month {
   margin-top: 0;
+  color: #1b351c;
 }
 
 .table-title {
@@ -96,6 +92,11 @@
 .table-title div {
   width: 33%;
   float: left;
+}
+
+.welcome-container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 
@@ -152,7 +153,9 @@ li {
 }
 
 main {
-  margin: 0px 8px;
+  margin: 0px 8px 100px 8px;
+  min-height: 400px;
+  clear: both;
   padding-top: 40px;
   width: 960px;
 }
@@ -230,77 +233,7 @@ nav .responsive-menu a {
   padding: 14px 2px;
 }
 
-/*
-
-.responsive-menu ul li {
-  display: inline-block;
-  float: left;
-  list-style: none;
-  padding: 0 0 0 5px;
-  margin: 0;
-}
-
-.menuIcon {
-  display: none;
-  background: #000;
-  width: 100%;
-  text-align: center;
-}
-.menuIcon:hover {
-  background: #999;
-}
-.menuIcon a {
-  width: 100%;
-  display: inline-block;
-  color: #fff;
-}
-.menuIcon a img {
-  vertical-align: middle;
-}
-
-.responsive-menu {
-  width: 100%;
-  float: none;
-  overflow: hidden;
-  text-align: center;
-  -webkit-transition: max-height 0.5s;
-  -moz-transition: max-height 0.5s;
-  transition: max-height 0.5s;
-}
-
-.responsive-menu ul li {
-  display: block;
-  width: 100%;
-  background: #000;
-  border-top: 1px solid #4d4d4d;
-}
-
-.responsive-menu ul li:hover {
-  background: #999;
-}
-.responsive-menu ul li a {
-  color: #fff;
-  text-shadow: #848484 0px 1px 2px;
-  padding: 10px 0;
-  width: 100%;
-}
-
-.menuOpen {
-  max-height: 1000px;
-  -webkit-transition: max-height 0.5s;
-  -moz-transition: max-height 0.5s;
-  transition: max-height 0.5s;
-}
-
-.menuIcon {
-  display: inline-block;
-}*/
-
-
 @media only screen and (min-width:760px) {
-  main {
-    font-size: 150%;
-  }
 
   .responsive-menu {
     display: block !important;
@@ -328,10 +261,33 @@ nav .responsive-menu a {
     display: block;
     width: 100%;
   }
+
 }
 
 @media only screen and (max-width:960px) {
   main {
     width: 90%;
+  }
+}
+
+@media only screen and (max-width:480px) {
+  main {
+    font-size: 150%;
+  }
+
+  .monthly-table {
+    width: 100%;
+  }
+
+  .summary-container {
+    width: 100%;
+  }
+
+  .table-title {
+    width: 100%;
+  }
+
+  a.button-link {
+    font-size: 120%;
   }
 }
