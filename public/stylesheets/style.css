@@ -101,6 +101,10 @@
   margin: 0 auto;
 }
 
+#logout-button {
+  float: right;
+}
+
 
 a {
   color: #1b351c;
@@ -162,32 +166,6 @@ main {
   width: 90%;
 }
 
-nav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  background-color: #333;
-}
-
-nav a {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: #64d166;
-  background-color: #222;
-}
-
 table {
   min-width: 500px;
   background-color: rgba(254,255,253,0.40);
@@ -215,6 +193,30 @@ th, td {
 }
 
 /**** Navbar ****/
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #64d166;
+  background-color: #222;
+}
 
 .responsive-menu {
   display: none;
