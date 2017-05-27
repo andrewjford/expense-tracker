@@ -32,7 +32,7 @@ class SessionController < ApplicationController
       redirect "/summary"
     else
       flash[:message] = "Login failed."
-      redirect "/login"
+      erb :"/sessions/login"
     end
   end
 

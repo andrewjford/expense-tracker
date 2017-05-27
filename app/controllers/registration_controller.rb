@@ -4,7 +4,7 @@ class RegistrationController < ApplicationController
     if logged_in?
       redirect '/'
     else
-      erb :"registrations/signup"
+      erb :"/registrations/new"
     end
   end
 
@@ -16,7 +16,7 @@ class RegistrationController < ApplicationController
       redirect "/summary"
     else
       flash[:message] = "Failed to create new user."
-      redirect "/signup"
+      erb :"/registrations/new"
     end
   end
 

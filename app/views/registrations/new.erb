@@ -1,9 +1,5 @@
 <h2>Sign Up</h2>
 
-<% if flash.has?(:message) %>
-  <p class="flash-text"><%= flash[:message] %></p>
-<% end %>
-
 <form action="/users" method="post">
   <label for="email">Email: </label><input type="email" id="email"
     name="user[email]">
@@ -14,5 +10,10 @@
   <label for="password">Password: </label><input type="password" id="password"
     name="user[password]">
   <br>
+  <% if flash.has?(:message) %>
+    <p class="flash-text"><%= flash[:message] %></p>
+    <% else %>
+    <br>
+  <% end %>
   <input type="submit" value="Submit" onclick="this.disabled = true;this.form.submit();">
 </form>
