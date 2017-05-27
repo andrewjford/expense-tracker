@@ -60,11 +60,17 @@ class User < ActiveRecord::Base
     hash = self.total_expenses_by_category(month)
     out = {}
     out[:hash] = self.last_decimal(hash)
-    out[:grand_total] = hash.sum {|key,value| value}
+
+    #temp hash to run grand total amount through last_decimal converter
+    tempHash = {}
+    tempHash[:grand_total] = hash.sum {|key,value| value} #get grand total
+    out[:grand_total] = self.last_decimal(tempHash)[:grand_total]
+    
     out
   end
 
   def last_decimal(hash)
+    #receives and returns hash
     #Adds zero to cents column if stored without one (ex. $12.5)
     #converts values to string and adds a zero if only one decimal point
     new_hash = {}
