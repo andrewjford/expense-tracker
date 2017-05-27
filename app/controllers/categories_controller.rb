@@ -42,9 +42,9 @@ class CategoriesController < ApplicationController
   end
 
   post '/categories' do
-    if new_category = Category.new(name: params[:name], user: current_user)
-      new_category.save
-    else
+    new_category = Category.find_or_initialize_by(name: params[:name], user: current_user)
+    binding.pry
+    if !new_category.save
       flash[:message] = "Category not added."
     end
     redirect '/categories'
