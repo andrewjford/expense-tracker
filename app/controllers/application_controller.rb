@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
         month += 12
         year -= 1
       end
-      Time.new(year,month,datetime.day)
+      Time.new(year,month,1)
     end
   end
 
