@@ -26,12 +26,12 @@ class SessionController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
       redirect "/summary"
     else
-      flash[:message] = "Login failed."
+      flash[:message] = "Incorrect username or password."
       erb :"/sessions/login"
     end
   end

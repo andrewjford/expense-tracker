@@ -57,16 +57,17 @@ class CategoriesController < ApplicationController
   end
 
   delete '/categories/:id' do
-    category = current_user.categories.find_by(id: params[:id])
+    @category = current_user.categories.find_by(id: params[:id])
 
     #check if there exist any expenses with this category
-    if current_user.expenses.none?{|exp| exp.category == category}
-      flash[:message] = "Category #{category.name} deleted."
-      category.destroy
+    if current_user.expenses.none?{|exp| exp.category == @category}
+      flash[:message] = "Category #{@category.name} deleted."
+      @category.destroy
       redirect "/categories"
     else
       flash[:message] = "You may only delete categories with no expenses."
-      redirect "/categories/#{category.slug}"
+      @filtered_expenses = current_user.expenses_by_category(@category)
+      erb :"/categories/show"
     end
   end
 

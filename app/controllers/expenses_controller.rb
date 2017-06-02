@@ -5,7 +5,7 @@ class ExpensesController < ApplicationController
       @categories = current_user.categories
       erb :"expenses/new"
     else
-      redirect '/'
+      redirect '/login'
     end
   end
 
@@ -17,16 +17,19 @@ class ExpensesController < ApplicationController
       @expenses = @expenses.sort_by {|expense| expense.date}.reverse
       erb :"expenses/all"
     else
-      redirect '/'
+      redirect '/login'
     end
   end
 
   get '/expenses/:id' do
     if logged_in?
-      @expense = current_user.expenses.find(params[:id])
-      erb :"expenses/show"
+      if @expense = current_user.expenses.find_by(id: params[:id])
+        erb :"expenses/show"
+      else
+        redirect '/'
+      end
     else
-      redirect '/'
+      redirect '/login'
     end
   end
 
@@ -38,7 +41,7 @@ class ExpensesController < ApplicationController
       @expenses = @expenses.sort_by {|expense| expense.date}.reverse.first(20)
       erb :"expenses/index"
     else
-      redirect '/'
+      redirect '/login'
     end
   end
 
@@ -87,14 +90,15 @@ class ExpensesController < ApplicationController
   end
 
   patch '/expenses/:id' do
-    expense = current_user.expenses.find_by(id: params[:id])
-    category = Category.find_or_create_by(name: params[:category][:name],
-      user: current_user)
-    if expense
-      expense.update(date: params[:date],category: category,
+    @expense = current_user.expenses.find_by(id: params[:id])
+    category = current_user.categories.find_or_create_by(name: params[:category][:name])
+    if @expense && @expense.update(date: params[:date], category: category,
       vendor: params[:vendor], amount: params[:amount])
+      flash[:message] = @expense.errors.full_messages.join(', ')
+      redirect "/expenses/#{params[:id]}"
+    else
+      erb :"/expenses/edit"
     end
-    redirect "/expenses/#{params[:id]}"
   end
 
   delete '/expenses/:id' do

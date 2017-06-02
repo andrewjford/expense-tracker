@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :username, :email
+  validates :username, :email, presence: true, uniqueness: true
   has_secure_password
   has_many :categories
   has_many :expenses, through: :categories
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
     tempHash = {}
     tempHash[:grand_total] = hash.sum {|key,value| value} #get grand total
     out[:grand_total] = self.last_decimal(tempHash)[:grand_total]
-    
+
     out
   end
 
