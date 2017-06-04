@@ -1,4 +1,4 @@
-An expense tracking web app made in Sinatra
+An expense tracking web app made in Sinatra. Currently hosted at https://oozetracker.herokuapp.com/.
 
 Overview
 
